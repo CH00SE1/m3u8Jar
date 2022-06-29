@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="m3u8Download:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/m3u8Download_jar</output-path>
+    <root id="root">
+      <element id="archive" name="m3u8Download.jar">
+        <element id="module-output" name="m3u8-download" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jsoup-1.15.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/bcprov-jdk16-139.jar" />
+    </root>
+  </artifact>
+</component>

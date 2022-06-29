@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: net.m3u8.main.M3u8Main
+Class-Path: jsoup-1.15.1.jar bcprov-jdk16-139.jar
+
