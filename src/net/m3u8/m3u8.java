@@ -13,17 +13,17 @@ import java.util.Date;
  */
 public class m3u8 {
 
-    public String downlandFlie(String url, String fileName) {
+    public String downlandFlie(String url, String fileName, String platForm) {
         M3u8DownloadFactory.M3u8Download m3u8Download = M3u8DownloadFactory.getUrlInfo(url);
         // 设置生成目录
-        String filePath = "D:\\m3u8_video\\" + DateUtils.parseDateToStr(DateUtils.YYYYMMDDHHMMSS, new Date());
+        String filePath = "D:\\m3u8Video\\" + DateUtils.parseDateToStr(DateUtils.YYYYMMDDHHMMSS, new Date());
         m3u8Download.setDir(filePath);
         // 设置视频名称
-        m3u8Download.setFileName(fileName);
+        m3u8Download.setFileName(fileName.replaceAll(" ", "").concat("-").concat(platForm));
         // 设置线程数
-        m3u8Download.setThreadCount(250);
+        m3u8Download.setThreadCount(300);
         // 设置重试次数
-        m3u8Download.setRetryCount(500);
+        m3u8Download.setRetryCount(100);
         // 设置连接超时时间（单位：毫秒）
         m3u8Download.setTimeoutMillisecond(10000L);
         // 设置日志级别 可选值：NONE INFO DEBUG ERROR

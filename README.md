@@ -1,8 +1,9 @@
-# m3u8Jar
-视频下载包
-# 直接使用jar文件 maven
+# [作者](https://github.com/CH00SE1/)  说明
+# maven本地打包
+```aidl
 <dependency>
     <groupId>com.lshaox</groupId>
     <artifactId>m3u8</artifactId>
-    <version>3.1.0</version>
+    <version>1.1.0</version>
 </dependency>
+```
