@@ -89,7 +89,7 @@ public class M3u8DownloadFactory {
         private Set<String> tsSet = new LinkedHashSet<>();
 
         //解密后的片段
-        private Set<File> finishedFiles = new ConcurrentSkipListSet<>(Comparator.comparingInt(o -> Integer.parseInt(o.getName().replace(".xyz", ""))));
+        private Set<File> finishedFiles = new ConcurrentSkipListSet<>(Comparator.comparingInt(o -> Integer.parseInt(o.getName().replace(".lsx2", ""))));
 
         //已经下载的文件大小
         private BigDecimal downloadBytes = new BigDecimal(0);
