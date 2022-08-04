@@ -14,14 +14,15 @@ import java.util.Date;
 public class m3u8 {
 
     public String downlandVideo(String url, String fileName, String platForm) {
+        String regex = "[\\/:*?|<>\"]";
         M3u8DownloadFactory.M3u8Download m3u8Download = M3u8DownloadFactory.getUrlInfo(url);
         // 设置生成目录
-        String filePath = "D:\\m3u8_video\\" + platForm + "\\" + DateUtils.parseDateToStr(DateUtils.YYYYMMDDHHMMSS, new Date());
+        String filePath = "D:\\m3u8_video\\" + platForm.replaceAll(regex, "-") + "\\" + DateUtils.parseDateToStr(DateUtils.YYYYMMDDHHMMSS, new Date());
         m3u8Download.setDir(filePath);
         // 设置视频名称
-        m3u8Download.setFileName(fileName.replaceAll(" ", ""));
+        m3u8Download.setFileName(fileName.replaceAll(regex, ""));
         // 设置线程数
-        m3u8Download.setThreadCount(300);
+        m3u8Download.setThreadCount(100);
         // 设置重试次数
         m3u8Download.setRetryCount(100);
         // 设置连接超时时间（单位：毫秒）
@@ -60,7 +61,7 @@ public class m3u8 {
         });
         // 开始下载
         m3u8Download.start();
-        return filePath.concat("\\").concat(fileName);
+        return filePath + "\\" + fileName;
     }
 
 }

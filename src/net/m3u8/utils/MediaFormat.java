@@ -35,13 +35,15 @@ public class MediaFormat {
     }
 
     public static String getMediaFormat(String url) {
-        if (!StringUtils.isUrl(url))
-            throw new M3u8Exception(url + "不是一个完整URL链接！");
+        if (!StringUtils.isUrl(url)) {
+            throw new M3u8Exception(url + "不是一个完整URL链接!");
+        }
         url = url.substring(url.lastIndexOf("/") - 1);
         for (String s : set) {
-            if (url.contains(s))
+            if (url.contains(s)) {
                 return s;
+            }
         }
-        throw new M3u8Exception("非视频链接！");
+        throw new M3u8Exception("非视频链接!");
     }
 }
