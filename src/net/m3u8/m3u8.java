@@ -13,13 +13,13 @@ import java.util.Date;
  */
 public class m3u8 {
 
-    public String downlandFlie(String url, String fileName, String platForm) {
+    public String downlandVideo(String url, String fileName, String platForm) {
         M3u8DownloadFactory.M3u8Download m3u8Download = M3u8DownloadFactory.getUrlInfo(url);
         // 设置生成目录
-        String filePath = "D:\\m3u8Video\\" + DateUtils.parseDateToStr(DateUtils.YYYYMMDDHHMMSS, new Date());
+        String filePath = "D:\\m3u8_video\\" + platForm + "\\" + DateUtils.parseDateToStr(DateUtils.YYYYMMDDHHMMSS, new Date());
         m3u8Download.setDir(filePath);
         // 设置视频名称
-        m3u8Download.setFileName(fileName.replaceAll(" ", "").concat("-").concat(platForm));
+        m3u8Download.setFileName(fileName.replaceAll(" ", ""));
         // 设置线程数
         m3u8Download.setThreadCount(300);
         // 设置重试次数
@@ -40,22 +40,22 @@ public class m3u8 {
         m3u8Download.addListener(new DownloadListener() {
             @Override
             public void start() {
-                System.out.println("开始下载！");
+                System.out.println("开始下载!");
             }
 
             @Override
             public void process(String downloadUrl, int finished, int sum, float percent) {
-                System.out.println("下载网址：" + downloadUrl + "\t已下载" + finished + "个\t一共" + sum + "个\t已完成" + percent + "%");
+                System.out.println("下载网址:" + downloadUrl + "\t已下载" + finished + "个\t一共" + sum + "个\t已完成" + percent + "%");
             }
 
             @Override
             public void speed(String speedPerSecond) {
-                System.out.println("下载速度：" + speedPerSecond);
+                System.out.println("下载速度:" + speedPerSecond);
             }
 
             @Override
             public void end() {
-                System.out.println("下载完毕");
+                System.out.println("下载完毕!");
             }
         });
         // 开始下载
