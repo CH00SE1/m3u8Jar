@@ -11,7 +11,7 @@ import java.util.Date;
  * @author xiongshao
  * @date 2022-06-29 15:39:26
  */
-public class m3u8 {
+public final class m3u8 {
 
     public String downlandVideo(String url, String fileName, String platForm) {
         String regex = "[\\/:*?|<>\"]";
