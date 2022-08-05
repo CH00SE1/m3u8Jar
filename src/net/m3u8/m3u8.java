@@ -5,8 +5,6 @@ import net.m3u8.listener.DownloadListener;
 import net.m3u8.utils.Constant;
 import net.m3u8.utils.DateUtils;
 
-import java.util.Date;
-
 /**
  * @author xiongshao
  * @date 2022-06-29 15:39:26
@@ -14,13 +12,12 @@ import java.util.Date;
 public final class m3u8 {
 
     public String downlandVideo(String url, String fileName, String platForm) {
-        String regex = "[\\/:*?|<>\"]";
         M3u8DownloadFactory.M3u8Download m3u8Download = M3u8DownloadFactory.getUrlInfo(url);
         // 设置生成目录
-        String filePath = "D:\\m3u8_video\\" + platForm.replaceAll(regex, "-") + "\\" + DateUtils.parseDateToStr(DateUtils.YYYYMMDDHHMMSS, new Date());
+        String filePath = "D:\\m3u8_video\\" + fixFile(platForm) + "\\" + fixFile(fileName);
         m3u8Download.setDir(filePath);
         // 设置视频名称
-        m3u8Download.setFileName(fileName.replaceAll(regex, ""));
+        m3u8Download.setFileName(fixFile(fileName) + DateUtils.dateTimeNow());
         // 设置线程数
         m3u8Download.setThreadCount(100);
         // 设置重试次数
@@ -62,6 +59,11 @@ public final class m3u8 {
         // 开始下载
         m3u8Download.start();
         return filePath + "\\" + fileName;
+    }
+
+    public static String fixFile(String str) {
+        String regex = "[\\/:*?|<>\"]";
+        return str.replaceAll(regex, "-").replaceAll(" ", "");
     }
 
 }

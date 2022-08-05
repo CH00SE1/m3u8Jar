@@ -5,8 +5,9 @@ public class Log {
     private static volatile int level = Constant.INFO;
 
     public static void i(CharSequence message) {
-        if (level == Constant.INFO)
+        if (level == Constant.INFO) {
             System.out.println("\33[0;2m" + message);
+        }
     }
 
     public static void d(CharSequence message) {
@@ -24,8 +25,9 @@ public class Log {
     }
 
     public static void setLevel(int level) {
-        if (level != Constant.NONE && level != Constant.INFO && level != Constant.DEBUG && level != Constant.ERROR)
+        if (level != Constant.NONE && level != Constant.INFO && level != Constant.DEBUG && level != Constant.ERROR) {
             throw new IllegalArgumentException("日志参数信息设置错误！");
+        }
         Log.level = level;
     }
 
