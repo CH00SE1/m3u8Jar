@@ -678,7 +678,7 @@ public class M3u8DownloadFactory {
 
         private M3u8Download(String DOWNLOADURL) {
             this.DOWNLOADURL = DOWNLOADURL;
-            requestHeaderMap.put("User-Agent", "Mozilla/5.0 (Linux; Android............ecko) Chrome/92.0.4515.105 HuaweiBrowser/12.0.4.300 Mobile Safari/537.36");
+            requestHeaderMap.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36");
         }
 
         public Proxy getProxy() {

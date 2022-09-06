@@ -19,7 +19,7 @@ public final class m3u8 {
         // 设置视频名称
         m3u8Download.setFileName(fixFile(fileName) + DateUtils.dateTimeNow());
         // 设置线程数
-        m3u8Download.setThreadCount(100);
+        m3u8Download.setThreadCount(250);
         // 设置重试次数
         m3u8Download.setRetryCount(100);
         // 设置连接超时时间（单位：毫秒）
